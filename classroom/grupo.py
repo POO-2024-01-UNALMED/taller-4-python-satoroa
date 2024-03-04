@@ -1,3 +1,5 @@
+from asignatura import Asignatura
+
 class Grupo:
 
     grado = "Grado 12"
@@ -8,7 +10,11 @@ class Grupo:
         self.listadoAlumnos = alumnos if alumnos is not None else []
 
     def agregarAlumno(self, *alumnos):
-        self.listadoAlumnos.extend(alumnos)
+        for alumno in alumnos:
+            if isinstance(alumno, list):
+                self.listadoAlumnos.extend(alumno)
+            else:
+                self.listadoAlumnos.append(alumno)
 
     def listadoAsignaturas(self, **asignaturas):
         self._asignaturas.extend(Asignatura(nombre) for nombre in asignaturas.values())
