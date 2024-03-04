@@ -8,6 +8,7 @@ class Grupo:
         self._grupo = grupo
         self._asignaturas = asignaturas if asignaturas is not None else []
         self.listadoAlumnos = alumnos if alumnos is not None else []
+        self.__class__.grado = "Grado 12"
 
     def agregarAlumno(self, *alumnos):
         for alumno in alumnos:
@@ -24,7 +25,7 @@ class Grupo:
         cls.grado = nombre
 
     def __str__(self):
-        return f"{self._grupo}"
+        return f"Grupo de estudiantes: {self._grupo}"
 
     @property
     def grado(self):
