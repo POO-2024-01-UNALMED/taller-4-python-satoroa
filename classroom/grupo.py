@@ -13,9 +13,9 @@ class Grupo:
     def agregarAlumno(self, *alumnos):
         for alumno in alumnos:
             if isinstance(alumno, list):
-                self.listadoAlumnos.extend(alumno)
+                self.listadoAlumnos = alumno + self.listadoAlumnos
             else:
-                self.listadoAlumnos.insert(0, alumno)
+                self.listadoAlumnos.append(alumno)
 
     def listadoAsignaturas(self, **asignaturas):
         self._asignaturas.extend(Asignatura(nombre) for nombre in asignaturas.values())
