@@ -13,7 +13,7 @@ class Grupo:
     def agregarAlumno(self, *alumnos):
         for alumno in alumnos:
             if isinstance(alumno, list):
-                self.listadoAlumnos.extend(alumno)
+                self.listadoAlumnos = alumno + self.listadoAlumnos
             else:
                 self.listadoAlumnos.append(alumno)
 
