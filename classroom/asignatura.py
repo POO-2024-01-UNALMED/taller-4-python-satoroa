@@ -6,3 +6,6 @@ class Asignatura:
 
     def __str__(self):
         return f"{self._nombre} {self._salon}"
+
+    # def __str__(self):
+    #     pass
