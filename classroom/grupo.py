@@ -28,14 +28,6 @@ class Grupo:
         if self._grupo is not None:
             return f"grupo estudiantes: {self._grupo}"
 
-    @ classmethod
-    def asignarNombre(cls, nombre="Grado 10"):
-        cls.grado = nombre
-
-    @ classmethod
-    def asignarNombre(cls, nombre="Grado 6"):
-        cls.grado = nombre
-
-    @ classmethod
-    def asignarNombre(cls, nombre="Grado 4"):
+    @classmethod
+    def asignarNombre(cls, nombre="Grado 12"):
         cls.grado = nombre
