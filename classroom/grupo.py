@@ -18,7 +18,9 @@ class Grupo:
                 self.listadoAlumnos.append(alumno)
 
     def listadoAsignaturas(self, **asignaturas):
-        self._asignaturas.extend(Asignatura(nombre) for nombre in asignaturas.values())
+        for nombre in asignaturas.keys():
+            asignatura = Asignatura(nombre)
+            self._asignaturas.append(asignatura)
 
     @classmethod
     def asignarNombre(cls, nombre="Grado 6"):
