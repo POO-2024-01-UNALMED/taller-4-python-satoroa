@@ -1,38 +1,41 @@
 from classroom.asignatura import Asignatura
 
 class Grupo:
-
     grado = "Grado 12"
 
-    def __init__(self, grupo="grupo predeterminado", asignaturas=None, alumnos=None):
+    def __init__(self, grupo="grupo predeterminado", asignaturas=None, estudiantes=None):
         self._grupo = grupo
-        self._asignaturas = asignaturas if asignaturas is not None else []
-        self.listadoAlumnos = alumnos if alumnos is not None else []
-        self.__class__.grado = "Grado 12"
+        if asignaturas is None:
+            self._asignaturas = []
+        else:
+            self._asignaturas = asignaturas
+        if estudiantes is None:
+            self.listadoAlumnos = []
+        else:
+            self.listadoAlumnos = estudiantes
 
-    def agregarAlumno(self, *alumnos):
-        for alumno in alumnos:
-            if isinstance(alumno, list):
-                self.listadoAlumnos.extend(alumno)
-            else:
-                self.listadoAlumnos.append(alumno)
-        self._grupo = f"Grupo {len(self.listadoAlumnos)}"
+    def listadoAsignaturas(self, **kwargs):
+        for x in kwargs.values():
+            self._asignaturas.append(Asignatura(x))
 
-    def listadoAsignaturas(self, **asignaturas):
-        for nombre, salon in asignaturas.items():
-            if salon is None:
-                asignatura = Asignatura(nombre)
-            else:
-                asignatura = Asignatura(nombre, salon)
-            self._asignaturas.append(asignatura)
+    def agregarAlumno(self, alumno, lista=None):
+        if lista is None:
+            lista = []
+        lista.append(alumno)
+        self.listadoAlumnos = self.listadoAlumnos + lista
 
-    @classmethod
+    def __str__(self):
+        if self._grupo is not None:
+            return f"grupo estudiantes: {self._grupo}"
+
+    @ classmethod
+    def asignarNombre(cls, nombre="Grado 10"):
+        cls.grado = nombre
+
+    @ classmethod
     def asignarNombre(cls, nombre="Grado 6"):
         cls.grado = nombre
 
-    def __str__(self):
-        return f"Grupo de estudiantes: {self._grupo}"
-
-    @property
-    def grado(self):
-        return self.__class__.grado
+    @ classmethod
+    def asignarNombre(cls, nombre="Grado 4"):
+        cls.grado = nombre

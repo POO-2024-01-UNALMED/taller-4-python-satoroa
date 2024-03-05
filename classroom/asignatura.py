@@ -1,11 +1,12 @@
 class Asignatura:
 
-    def __init__(self, nombre, salon="remoto"):
+    def __init__(self, nombre=None, salon="remoto"):
         self._nombre = nombre
         self._salon = salon
 
     def __str__(self):
-        return f"{self._nombre} {self._salon}"
+        if self._nombre is not None:
+            return f"{self._nombre} {self._salon}"
 
     # def __str__(self):
     #     pass
