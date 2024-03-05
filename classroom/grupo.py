@@ -16,6 +16,7 @@ class Grupo:
                 self.listadoAlumnos.extend(alumno)
             else:
                 self.listadoAlumnos.append(alumno)
+        self._grupo = f"Grupo {len(self.listadoAlumnos)}"
 
     def listadoAsignaturas(self, **asignaturas):
         for nombre, salon in asignaturas.items():
