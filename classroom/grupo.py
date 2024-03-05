@@ -18,8 +18,11 @@ class Grupo:
                 self.listadoAlumnos.append(alumno)
 
     def listadoAsignaturas(self, **asignaturas):
-        for nombre in asignaturas.keys():
-            asignatura = Asignatura(nombre)
+        for nombre, salon in asignaturas.items():
+            if salon is None:
+                asignatura = Asignatura(nombre)
+            else:
+                asignatura = Asignatura(nombre, salon)
             self._asignaturas.append(asignatura)
 
     @classmethod
